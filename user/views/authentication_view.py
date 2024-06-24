@@ -1,9 +1,9 @@
 from django.shortcuts import render, redirect
-from django.http import HttpResponse
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from user.form import RegisterForm
+
 
 def register(request):
     form = RegisterForm()
@@ -12,6 +12,7 @@ def register(request):
         if form.is_valid():
             form.save()
             form = RegisterForm()
+            messages.success(request, "Account created successfully!")
             return redirect("login")
 
     context = {'form': form}
@@ -35,5 +36,6 @@ def login_user(request):
 
 
 def logout_user(request):
+    print("Done")
     logout(request)
-    return redirect("")
+    return redirect("login")

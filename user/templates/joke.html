@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Joke App</title>
+    <style>
+        .joke-container{
+            width: 50%;
+            margin: auto;
+            text-align: center;
+        }
+        a {
+            text-decoration: none;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <div class="joke-container">
+        <h1>Welcome {{ user.username }}!</h1>
+        {% if jokes %}
+        {% for joke in jokes %}
+            <p><strong>{{ joke.setup }}</strong></p>
+            <p>{{ joke.punctuation }}</p>
+        {% endfor %}
+        {% else %}
+            <p><strong>There is no joke for this user</strong></p>
+        {% endif %}
+
+        <button type="button" class="btn btn-primary">
+            <a href="{% url 'create_joke' %}">Create New Joke</a>
+        </button>
+        <p></p>
+        <button type="button" class="btn btn-secondary" >
+            <a  href="{% url 'logout'%}">Logout</a>
+        </button>
+    </div>
+</body>
+</html>
