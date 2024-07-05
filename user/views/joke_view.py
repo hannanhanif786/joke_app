@@ -2,7 +2,7 @@ import requests
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from user.models import Joke
-from utils.helping_util import create_joke_file
+from user.tasks import create_joke_file
 
 @login_required(login_url="login")
 def joke_view(request):
@@ -22,7 +22,6 @@ def create_joke(request):
 @login_required(login_url="login")
 def create_file(request):
     user = request.user
-    jokes = Joke.objects.filter(user=user)
-    create_joke_file(jokes, user)
+    create_joke_file.delay(user.id)
     return redirect("/")
 
