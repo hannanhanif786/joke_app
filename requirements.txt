@@ -3,3 +3,4 @@ requests
 django-environ
 celery
 redis
+psycopg2-binary
