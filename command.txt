@@ -1,0 +1,4 @@
+celery worker:
+    celery -A joke(proj_name) worker -l INFO
+celery beat:
+    celery -A your_project_name beat

@@ -7,6 +7,10 @@ import sys
 def main():
     """Run administrative tasks."""
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'joke.settings')
+
+    # for the log on the server level
+    # os.system("celery -A joke worker --loglevel=info &")
+
     try:
         from django.core.management import execute_from_command_line
     except ImportError as exc:
