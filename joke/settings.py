@@ -117,3 +117,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AWS_ACCESS_KEY_ID = env.str('AWS_ACCESS_KEY_ID')
 AWS_SECRET_ACCESS_KEY = env.str('AWS_SECRET_ACCESS_KEY')
 AWS_BUCKET_NAME = env.str('AWS_BUCKET_NAME')
+
+# Celery Settings
+CELERY_BROKER_URL = 'redis://localhost:6379/0'
+CELERY_TIMEZONE = "Asia/Karachi"
+CELERY_TASK_TRACK_STARTED = True
