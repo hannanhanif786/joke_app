@@ -1,7 +1,7 @@
 import os
 import environ
 from pathlib import Path
-
+from user.celery_config import CELERY_BEAT_SCHEDULE
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -122,3 +122,4 @@ AWS_BUCKET_NAME = env.str('AWS_BUCKET_NAME')
 CELERY_BROKER_URL = 'redis://localhost:6379/0'
 CELERY_TIMEZONE = "Asia/Karachi"
 CELERY_TASK_TRACK_STARTED = True
+CELERY_BEAT_SCHEDULE = CELERY_BEAT_SCHEDULE
